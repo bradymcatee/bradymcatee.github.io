@@ -1,1 +1,352 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>~/portfolio</title>
+    <style>
+        :root {
+            --bg-primary: #1a1b26;
+            --bg-secondary: #24283b;
+            --text-primary: #a9b1d6;
+            --text-secondary: #7aa2f7;
+            --accent: #7dcfff;
+            --success: #9ece6a;
+            --terminal-green: #73daca;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+            line-height: 1.6;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Terminal-style header */
+        .terminal-header {
+            border: 1px solid var(--text-secondary);
+            border-radius: 6px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .terminal-titlebar {
+            background: var(--bg-secondary);
+            padding: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .terminal-buttons {
+            display: flex;
+            gap: 6px;
+            margin-right: 10px;
+        }
+
+        .terminal-button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .terminal-close { background: #ff5f57; }
+        .terminal-minimize { background: #febc2e; }
+        .terminal-maximize { background: #28c841; }
+
+        .terminal-title {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--bg-secondary);
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 30px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            position: relative;
+        }
+
+        .nav-links a::before {
+            content: '>';
+            color: var(--terminal-green);
+            margin-right: 5px;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .nav-links a:hover::before {
+            opacity: 1;
+        }
+
+        /* Hero section */
+        .hero {
+            padding: 60px 0;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+        }
+
+        .hero p {
+            color: var(--text-primary);
+            max-width: 600px;
+        }
+
+        .typed-cursor {
+            color: var(--terminal-green);
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Projects section */
+        .projects {
+            padding: 40px 0;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .section-header::before {
+            content: '#';
+            color: var(--accent);
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            background: var(--bg-secondary);
+            border-radius: 6px;
+            padding: 20px;
+            border: 1px solid var(--text-secondary);
+            transition: transform 0.2s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card h3 {
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .project-tech {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .tech-tag {
+            background: var(--bg-primary);
+            color: var(--success);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        /* About section */
+        .about {
+            padding: 40px 0;
+        }
+
+        .terminal-window {
+            background: var(--bg-secondary);
+            border-radius: 6px;
+            padding: 20px;
+            border: 1px solid var(--text-secondary);
+        }
+
+        .command-line {
+            margin-bottom: 15px;
+        }
+
+        .prompt {
+            color: var(--terminal-green);
+        }
+
+        .command {
+            color: var(--text-secondary);
+        }
+
+        .output {
+            color: var(--text-primary);
+            margin-left: 20px;
+        }
+
+        /* Contact section */
+        .contact {
+            padding: 40px 0;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: var(--accent);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .social-links a::before {
+            content: '$';
+            color: var(--terminal-green);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="terminal-header">
+        <div class="terminal-titlebar">
+            <div class="terminal-buttons">
+                <div class="terminal-button terminal-close"></div>
+                <div class="terminal-button terminal-minimize"></div>
+                <div class="terminal-button terminal-maximize"></div>
+            </div>
+            <div class="terminal-title">~/portfolio - bash</div>
+        </div>
+        <nav>
+            <div class="nav-links">
+                <a href="#projects">cd projects/</a>
+                <a href="#about">cd about/</a>
+                <a href="#contact">cd contact/</a>
+            </div>
+        </nav>
+    </div>
+
+    <section class="hero">
+        <h1>Hello, I'm [Your Name] <span class="typed-cursor">|</span></h1>
+        <p class="command-line">
+            <span class="prompt">$ </span>
+            <span class="command">whoami</span>
+        </p>
+        <p class="output">Full-stack developer passionate about clean code and elegant solutions</p>
+    </section>
+
+    <section id="projects" class="projects">
+        <h2 class="section-header">Projects</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <h3>Project 1</h3>
+                <p>A brief description of your first project. What problems did it solve?</p>
+                <div class="project-tech">
+                    <span class="tech-tag">React</span>
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">MongoDB</span>
+                </div>
+            </div>
+            <div class="project-card">
+                <h3>Project 2</h3>
+                <p>Description of your second project. What were the key features?</p>
+                <div class="project-tech">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Django</span>
+                    <span class="tech-tag">PostgreSQL</span>
+                </div>
+            </div>
+            <div class="project-card">
+                <h3>Project 3</h3>
+                <p>Overview of your third project. What technical challenges did you overcome?</p>
+                <div class="project-tech">
+                    <span class="tech-tag">Vue.js</span>
+                    <span class="tech-tag">Firebase</span>
+                    <span class="tech-tag">TailwindCSS</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h2 class="section-header">About</h2>
+        <div class="terminal-window">
+            <p class="command-line">
+                <span class="prompt">$ </span>
+                <span class="command">cat about.txt</span>
+            </p>
+            <div class="output">
+                <p>Write about your journey as a developer, your expertise, and what drives you.</p>
+                <p>Mention your key skills, notable achievements, and areas of interest in technology.</p>
+            </div>
+            <p class="command-line">
+                <span class="prompt">$ </span>
+                <span class="command">ls skills/</span>
+            </p>
+            <div class="output">
+                <div class="project-tech">
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">React</span>
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">Git</span>
+                    <span class="tech-tag">Docker</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2 class="section-header">Contact</h2>
+        <div class="terminal-window">
+            <p class="command-line">
+                <span class="prompt">$ </span>
+                <span class="command">echo "Let's connect!"</span>
+            </p>
+            <div class="social-links">
+                <a href="https://github.com/yourusername">github/yourusername</a>
+                <a href="https://linkedin.com/in/yourusername">linkedin/yourusername</a>
+                <a href="mailto:your.email@example.com">email</a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
