@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>~/portfolio - bash</title>
+    <title>~/bradys-portfolio - bash</title>
     <style>
       :root {
         /* Gruvbox Dark Colors */
@@ -245,7 +245,23 @@
         font-size: 0.8rem;
         border: 1px solid var(--aqua);
       }
+      /* Terminal cursor animation */
+      @keyframes blink {
+        0%,
+        49% {
+          opacity: 1;
+        }
+        50%,
+        100% {
+          opacity: 0;
+        }
+      }
 
+      .cursor {
+        color: var(--fg);
+        animation: blink 1s infinite;
+        margin-left: 2px;
+      }
       /* Terminal Window */
       .terminal-window {
         background: var(--bg-secondary);
@@ -255,7 +271,7 @@
       }
 
       .command-line {
-        margin-bottom: 15px;
+        margin-bottom: 1px;
       }
 
       .prompt {
@@ -346,7 +362,7 @@
           <div class="terminal-button terminal-minimize"></div>
           <div class="terminal-button terminal-maximize"></div>
         </div>
-        <div class="terminal-title">~/portfolio - bash</div>
+        <div class="terminal-title">~/bradys-portfolio - bash</div>
       </div>
       <nav>
         <div class="nav-links">
@@ -359,6 +375,10 @@
 
     <section class="hero">
       <div class="neofetch-container">
+        <p class="command-line">
+          <span class="prompt">$ </span>
+          <span class="command">neofetch --brady</span>
+        </p>
         <div class="neofetch-content">
           <pre class="ascii-art">
 <span class="c1">
@@ -478,6 +498,15 @@
         <p class="command-line">
           <span class="prompt">$ </span>
           <span class="command">contact --info</span>
+        </p>
+        <p class="command-line">
+          <span class="command"
+            >bradymcatee12@gmail.com | linkedin.com/in/brady-mcatee |
+            github.com/bradymcatee
+          </span>
+        </p>
+        <p class="command-line">
+          <span class="prompt">$ </span><span class="cursor">█</span>
         </p>
       </div>
     </section>
