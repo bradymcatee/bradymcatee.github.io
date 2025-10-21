@@ -1,650 +1,166 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>~/bradys-portfolio - bash</title>
-    <style>
-      :root {
-        /* Gruvbox Dark Colors */
-        --bg-primary: #282828;
-        --bg-secondary: #3c3836;
-        --bg-soft: #32302f;
-        --fg: #ebdbb2;
-        --fg-dim: #a89984;
-        --red: #fb4934;
-        --green: #b8bb26;
-        --yellow: #fabd2f;
-        --blue: #83a598;
-        --purple: #d3869b;
-        --aqua: #8ec07c;
-        --orange: #fe8019;
-        --gray: #928374;
-      }
 
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brady McAtee — Software Engineer</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/index.css">
+</head>
 
-      body {
-        font-family: "JetBrains Mono", "Fira Code", monospace;
-        line-height: 1.6;
-        background-color: var(--bg-primary);
-        color: var(--fg);
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 20px;
-      }
+<body>
+  <h1 class="header">Brady McAtee</h1>
+  <p>Software Engineer · Full-Stack Web, Machine Learning, 3D Graphics</p>
+  <p>
+    <a href="resources/Brady_McAtee_Resume_2025.pdf">Download Resume (PDF)</a>
+  </p>
+  <hr>
 
-      /* Terminal-style header */
-      .terminal-header {
-        border: 1px solid var(--gray);
-        border-radius: 6px;
-        margin-bottom: 30px;
-        overflow: hidden;
-      }
+  <figure style="max-width: 300px; margin: calc(var(--line-height) * 2) 0;">
+    <img src="resources/me.jpg" alt="Brady McAtee" style="border: var(--border-thickness) solid var(--text-color);">
+  </figure>
 
-      .terminal-titlebar {
-        background: var(--bg-secondary);
-        padding: 8px;
-        display: flex;
-        align-items: center;
-      }
+  <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Contents</h2>
+    <ul class="incremental">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-      .terminal-buttons {
-        display: flex;
-        gap: 6px;
-        margin-right: 10px;
-      }
+  <section id="about">
+    <h2>About</h2>
+    <p>
+      I started programming at 12 making games in Visual Basic, and I fell in love.
+    </p>
+    <p>
+      Right now I'm studying CS at Portland State with a physics minor and working as a software
+      engineer intern at MSEI/Biotronik, where I build simulation models for medical device hardware.
+    </p>
+    <p>
+      I like working on problems that sit at the intersection of different domains—whether that's
+      computer vision, 3D graphics, machine learning, or full-stack web development.
+    </p>
+  </section>
 
-      .terminal-button {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-      }
+  <section id="projects">
+    <h2>Projects</h2>
 
-      .terminal-close {
-        background: var(--red);
-      }
-      .terminal-minimize {
-        background: var(--yellow);
-      }
-      .terminal-maximize {
-        background: var(--green);
-      }
+    <details>
+      <summary>recipeBox — Recipe management web application</summary>
+      <p>
+        Built a full-stack web app for restaurants to manage recipes and ingredients with full CRUD support.
+        Designed RESTful APIs and normalized PostgreSQL schemas to keep recipe and ingredient data consistent.
+        Implemented responsive React UI with intuitive forms for adding, editing, and searching recipes.
+      </p>
+      <p>
+        <a href="https://github.com/bradymcatee/recipeBox">GitHub</a> ·
+        <a href="https://recipecrate.app">Live Demo</a>
+      </p>
+      <p><strong>Stack:</strong> React, Node.js, Express, PostgreSQL, AWS EC2</p>
+    </details>
 
-      .terminal-title {
-        color: var(--fg-dim);
-        font-size: 0.9rem;
-      }
+    <details>
+      <summary>Tennis Shot Tracker — Ball tracking and serve velocity measurement</summary>
+      <p>
+        Trained a ball tracking CNN model based on the TrackNet architecture using PyTorch.
+        Used computer vision techniques and homography estimation to map 2D video coordinates to real-world court
+        dimensions.
+        Measured tennis serve velocity from iPhone video recordings by combining frame analysis and geometric
+        calibration.
+      </p>
+      <p>
+        <a href="https://github.com/bradymcatee/servetracker">GitHub</a>
+      </p>
+      <p><strong>Stack:</strong> Python, PyTorch, Computer Vision, OpenCV</p>
+    </details>
 
-      /* Navigation */
-      nav {
-        background: var(--bg-soft);
-        padding: 15px;
-        border-radius: 6px;
-        margin-bottom: 30px;
-      }
+    <details>
+      <summary>Interactive Photo Refocusing App — Depth estimation and DOF simulation</summary>
+      <p>
+        Built full-stack app using Python, PyTorch, and Flask for DSLR-style depth-of-field simulation from single
+        images.
+        Implemented Multi-Scale CNN (87.9M parameters) achieving 79% accuracy for monocular depth estimation.
+        Created responsive web interface with real-time click-to-focus interaction and configurable aperture effect.
+      </p>
+      <p>
+        <a href="https://github.com/bradymcatee/refocusing">GitHub</a>
+      </p>
+      <p><strong>Stack:</strong> Python, PyTorch, Flask, Docker</p>
+    </details>
 
-      .nav-links {
-        display: flex;
-        gap: 20px;
-      }
+    <details>
+      <summary>Plant Disease Classifier — ML disease detection</summary>
+      <p>
+        Created PyTorch/ResNet model achieving 99% accuracy on 50,000+ plant images.
+        Used data augmentation to improve model performance across plant species.
+        Deployed model on Hugging Face Spaces for real-time disease diagnosis.
+      </p>
+      <p>
+        <a href="https://huggingface.co/spaces/bradymcatee/diseases/tree/main">GitHub</a> ·
+        <a href="https://huggingface.co/spaces/bradymcatee/diseases">Live Demo</a>
+      </p>
+      <p><strong>Stack:</strong> Python, PyTorch, ResNet, Hugging Face</p>
+    </details>
 
-      .nav-links a {
-        text-decoration: none;
-        color: var(--fg);
-        position: relative;
-      }
+    <details>
+      <summary>Ray Tracing Engine — 3D graphics renderer</summary>
+      <p>
+        A ray tracing engine built from scratch in C++ that renders realistic 3D scenes.
+        Implements reflection, refraction, shadows, and anti-aliasing.
+      </p>
+      <p>
+        <a href="https://github.com/bradymcatee/RayTracer">GitHub</a>
+      </p>
+      <p><strong>Stack:</strong> C++, 3D Graphics, Computer Graphics</p>
+    </details>
+  </section>
 
-      .nav-links a::before {
-        content: ">";
-        color: var(--green);
-        margin-right: 5px;
-        opacity: 0;
-        transition: opacity 0.2s;
-      }
+  <section id="skills">
+    <h2>Skills</h2>
 
-      .nav-links a:hover::before {
-        opacity: 1;
-      }
+    <table>
+      <tbody>
+        <tr>
+          <td class="width-min"><strong>Languages</strong></td>
+          <td>C++, C, C#, Python, JavaScript, SQL</td>
+        </tr>
+        <tr>
+          <td class="width-min"><strong>Web</strong></td>
+          <td>React, Node.js, Express, Flask, PostgreSQL</td>
+        </tr>
+        <tr>
+          <td class="width-min"><strong>ML/CV</strong></td>
+          <td>PyTorch, OpenCV, NumPy</td>
+        </tr>
+        <tr>
+          <td class="width-min"><strong>Tools</strong></td>
+          <td>Git, Docker, Linux, Vim, .NET, AWS</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
 
-      /* Hero section */
-      .hero {
-        padding: 60px 0;
-      }
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>
+      Email: <a href="mailto:bradymcatee12@gmail.com">bradymcatee12@gmail.com</a>
+    </p>
+    <p>
+      GitHub: <a href="https://github.com/bradymcatee">github.com/bradymcatee</a>
+    </p>
+    <p>
+      LinkedIn: <a href="https://www.linkedin.com/in/brady-mcatee/">linkedin.com/in/brady-mcatee</a>
+    </p>
+  </section>
 
-      .hero h1 {
-        font-size: 2.5rem;
-        margin-bottom: 20px;
-        color: var(--yellow);
-      }
+  <hr>
+  <footer>
+    <p><small>© 2024 Brady McAtee. Built with plain HTML and CSS.</small></p>
+  </footer>
+</body>
 
-      .typed-cursor {
-        color: var(--green);
-        animation: blink 1s infinite;
-      }
-
-      @keyframes blink {
-        0%,
-        100% {
-          opacity: 1;
-        }
-        50% {
-          opacity: 0;
-        }
-      }
-      /* Hero section with neofetch */
-      .hero {
-        padding: 40px 0;
-      }
-
-      .neofetch-container {
-        background: var(--bg-secondary);
-        border-radius: 6px;
-        padding: 20px;
-        border: 1px solid var(--gray);
-        font-family: "JetBrains Mono", monospace;
-        overflow-x: auto;
-      }
-
-      .neofetch-content {
-        display: flex;
-        gap: 40px;
-        align-items: flex-start;
-      }
-
-      .ascii-art {
-        margin: 0;
-        font-size: 6px;
-        line-height: 1.2;
-        white-space: pre;
-      }
-
-      .system-info {
-        padding-top: 10px;
-      }
-
-      .system-info p {
-        margin-bottom: 5px;
-        white-space: nowrap;
-      }
-
-      .c1 {
-        color: var(--blue);
-      }
-      .c2 {
-        color: var(--fg);
-      }
-      .c3 {
-        color: var(--yellow);
-      }
-
-      @media (max-width: 768px) {
-        .ascii-art {
-          font-size: 10px;
-        }
-
-        .neofetch-content {
-          flex-direction: column;
-          gap: 20px;
-        }
-      }
-
-      /* Project section */
-      .section-header {
-        display: flex;
-        align-items: center;
-        margin-bottom: 30px;
-      }
-
-      .section-header::before {
-        content: "#";
-        color: var(--orange);
-        margin-right: 10px;
-        font-size: 1.5rem;
-      }
-
-      .project-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 20px;
-      }
-
-      .project-card {
-        background: var(--bg-secondary);
-        border-radius: 6px;
-        padding: 20px;
-        border: 1px solid var(--gray);
-        transition: transform 0.2s;
-        margin-bottom: 30px;
-      }
-
-      .project-card:hover {
-        transform: translateY(-5px);
-      }
-
-      .project-card h3 {
-        color: var(--blue);
-        margin-bottom: 10px;
-      }
-
-      .project-tech {
-        display: flex;
-        gap: 10px;
-        margin-top: 15px;
-        flex-wrap: wrap;
-      }
-
-      .tech-tag {
-        background: var(--bg-primary);
-        color: var(--aqua);
-        padding: 3px 8px;
-        border-radius: 4px;
-        font-size: 0.8rem;
-        border: 1px solid var(--aqua);
-      }
-      /* Terminal cursor animation */
-      @keyframes blink {
-        0%,
-        49% {
-          opacity: 1;
-        }
-        50%,
-        100% {
-          opacity: 0;
-        }
-      }
-
-      .cursor {
-        color: var(--fg);
-        animation: blink 1s infinite;
-        margin-left: 2px;
-      }
-      /* Terminal Window */
-      .terminal-window {
-        background: var(--bg-secondary);
-        border-radius: 6px;
-        padding: 20px;
-        border: 1px solid var(--gray);
-      }
-
-      .command-line {
-        margin-bottom: 10px;
-      }
-
-      .prompt {
-        color: var(--green);
-      }
-
-      .command {
-        color: var(--blue);
-      }
-
-      .output {
-        color: var(--fg);
-        margin-left: 20px;
-      }
-
-      /* Contact section */
-      .contact {
-        padding: 40px 0;
-      }
-
-      .social-links {
-        display: flex;
-        gap: 20px;
-        margin-top: 10px;
-      }
-
-      .social-links a {
-        color: var(--purple);
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        gap: 5px;
-      }
-
-      .social-links a::before {
-        content: "";
-        color: var(--green);
-      }
-
-      .social-links a:hover {
-        color: var(--aqua);
-      }
-
-      /* Project links */
-      .project-links {
-        display: flex;
-        gap: 15px;
-        margin-top: 15px;
-        padding-top: 15px;
-        border-top: 1px solid var(--gray);
-      }
-
-      .project-link {
-        color: var(--blue);
-        text-decoration: none;
-        font-size: 0.9rem;
-        display: flex;
-        align-items: center;
-        gap: 5px;
-        transition: color 0.2s;
-      }
-
-      .project-link:hover {
-        color: var(--aqua);
-      }
-
-      .project-link .prompt {
-        font-size: 0.9rem;
-      }
-
-      /* Responsive design */
-      @media (max-width: 768px) {
-        .project-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .hero h1 {
-          font-size: 2rem;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="terminal-header">
-      <div class="terminal-titlebar">
-        <div class="terminal-buttons">
-          <div class="terminal-button terminal-close"></div>
-          <div class="terminal-button terminal-minimize"></div>
-          <div class="terminal-button terminal-maximize"></div>
-        </div>
-        <div class="terminal-title">~/bradys-portfolio - bash</div>
-      </div>
-      <nav>
-        <div class="nav-links">
-          <a href="#projects">cd projects/</a>
-          <a href="#about">cd about/</a>
-          <a href="#contact">cd contact/</a>
-        </div>
-      </nav>
-    </div>
-
-    <section class="hero">
-      <div class="neofetch-container">
-        <p class="command-line">
-          <span class="prompt">$ </span>
-          <span class="command">neofetch --brady</span>
-        </p>
-        <div class="neofetch-content">
-          <pre class="ascii-art">
-<span class="c1">
-*********+================================================-======================================================================================================
-*********++======================================================================================================================================================
-********+++===================================================================================================================================+===+++++++++++++++
-**************+*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*++++++++++++++*+**+***********************#***##################
-********################################################################*######*##%##%#%#%%*=#*##################################################################
-*********################################################################*##%#%####%####%%%%##****##*###*##*#*############*###**###*#**##*#*###*****#************
-**********++====++*******************************************************#%%#***%%%@@@@%%%##%%*#######***********************************************************
-***********++===++******************************************************%###%%%#%%%%%@@@%@%%###%#%%%%#%%#********************************************************
-**************++++**************************************************+**##%%####%#%#%%%%%%#%#%%%%#%%%%#%%%%#******************************************************
-**************+++++***************************************+********++*%#@#%##*###%#%%%@%%*#%##%##%%%%%%%%%%%***********************************+*****************
-**************++++**********************************************++++*#%%##*%@%##%%#%#%##++*#%%####%%%%%%%%%%%#*****************+**+******************************
-************++++++***********************************************++*#####%*#%@%%#*+++*++*+++#%##*%%%%@@%%%%%%%%*****+*+*****+++++++***+++++++++++++++++++++==+=+=
-+=++++++=============++=+==+=======+++++++=======================++#%######%%*+=========--==++*#%%@#%%@@%%%%%%@%*======---=-=-----=====---=-=--------------------
-==-==-==--------------------------------------------------=------=#%#*##%%%*==----------=--====+*#%%%%%@@%%%%%%@#*-----------------------------------------------
-================-=-===-=-=--------=------------------------------#######@%+=-----------------===+*#%%@%%@%@%@%%#%%#======----------------------------------------
-=======================-=---==-----==---=-------------==-=-=====###%##@@#+-------------------===++*%@%@%@@%@%%%%#%%+=========--------=---------------------------
-=================================-===-====-----=-===-==-=-=====#*##*%%%#+----:-:-------------====+*%%@%%@@%@@%%%#%%%+=======-====--=-=---------------------------
-===============================================-====-=-==-====#%#####*%*=-:--::::-:-----------===++#%%%%%%%@@@%%%%@%#============================================
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++**%*###%#@#=---:::::------------======++*%%%%@@@%@%%@%%%##*******************************************
-#################*###*#***##*#*#*#***##****##*#*###**##**###*########@*---:::-:::---------------==++*#%@%%%@@%%%@%%%##**#**********#***********#*****************
-#***********************************************************##%#*####%===----:------------------====+*#@%#%%%%%%@%%%###******************************************
-++++++++***************+*****+******************************##*##*%##***#####+#+*=---------==========*#%%%%%@%%%%@%%###*++*+++++++++++++++++++++++++**++++++*+++*
-++====++*+++++++++++++++++++++++*+++++++++++++*+++++++*++*+#%###*#%##*==-===*****+==----==+=%*#####%##%%#%%%@%%%%%@%#%#++++++++++++++++++++++++++++++++++++++++++
-***++++++++++++++++++++++++++++++++++++++++++++++++++++++*####%%##%##*==+*++*++====----==+*#******++++#%%#@%@%%%%%%%%%#*+++++++++++++++++++++++++++++++++++++++++
-**+++++++++++++++++++++++++++++++++++++++++++++++++++++++***%%#%##%#%##+**##*@#**+=-:--=+***+*%*+++%***####%%%%%%%%%%%##*++++++++++++++++++++++++++++++++++++++++
-***+++++++++++++++++++++++++++++++++++++++++++++++++++++**#####%##*%%%#*+=###%***==-::-=***#**#%#@%##%%#%#%%@%%%%%%@%%%#+++++++++++++++++++++++++++++++++++++++++
-**++==++++++++++++++++++++++++++++++++++++++++++++++++++*****##%*####*+=--==++===---:--=+***+++=%#%#%%@##%%%@%%%%%%@%#%##++++++++++++++++++++++++++++++++++++++++
-*++++++++++++++++++++++++++++++++++++++++++++++++++++++****#####*%##*+=-------------::-=++**==+++***##%%####@@%%%%%@%%###*+++++++++++++++++++++++++++++++++++++++
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++**####*###%##*+--::::-::-----::-=+++++=====++++*#%%%%%@%%%%%%%%%%##+++++++++++++++++++++++++++++++++++++++
-++++++++++++++++++++++++++++++++++++++++++++++++++++++**#########%##*=-:::-:::::-:::::--==++=======++*##%%#%@%%@%%%@@%%###++=+++=================================
-==---------------------------------------------------++*#####*#%*%##*+--::-:::-.-======++++++=======+#*#%%%%@%%%%@%@%%%%##=--------------------------------------
--------------------------------------::-------------=++**####*%#####*=--:-::---==#@@=++@@%*++++=====+*#%%%@%@%%%%%%%@@%#%%#==------------------------------------
-----------------------------------------------------++*####*#*%#*#%#*+=-------:--=-=+***++**+++==+==**%%%@%%@@%%%%%%@%%%%#*===-----------------------------------
----------------------------------------------------=++**###*#*####%*#*=------::-=+++==+**##*+==+==++##%%%@%@@@%%%%%%@@##@%#*====---------------------------------
----------------------------------------------------=*+##%##**#%#####**+---=++*##*###**+#%%%%#***+=+**%#%%%%@@%#%%%%%%%%%%%#*+=---=-------------------------------
------=--------------------------------------------=+=+*#%###*#####@##%*==+*+*+#*%%##*==+%#%%%####**##%%%%%%@@%#%%%%%%%%%%###==-----------------------------------
-=================================================+=++*##%%%%#***##%**##**#**##%##***+****%%###%%%%*%%###%%%@%%#%%%@@@%%%%%%##+===========++=+++++++++++++++++++++
-******************************************************##%%##**%#%#%*+%#*+=------===+===+=+****+**##%%*%#%#%@%%%%@%@%@%%%%%###*************###*##****############*
-#######***###******##**#******************************##%##**#**##%#%*%#*==-------=========++++***##%##%%##@%%%%@%@@%@@%%#%####**********************************
-****************************************************+###%#*########*#%%#*+=------=++++*++++++++#*#%%#*#%###@%%%#@%@@%@%%%#%##****++******************************
-+***+++*++*++++*+**+*+++++**++++++++++*+**+++++*++++**##%###**#*%##***#%#+=-------===--=====++*###%%##%%%%@%##%%@%%%%@%%##%%*#**++++++++++++++++++++*+**++*++++++
-+++++++++++++++++++++++++++++++++++++++++++++++++++****#%#*#*#*#%*###*#%#*=+--:::--=------+=+*####%#*##%#%@%##%#%%%@%@%%%%%%###*+++++++++++++++++++++++++++++++++
-++++++++++++++++++++++++++++++++++++++++++++++++++**##*##***#*##%*#%*#*%%#*+*==-==--====++**#*###%%###%%%%%*##%%%%#%%@%%%#%##*#*+++++++++++++++++++++++++++++++++
-+++++++++++++++++++++++++++++++++++++++++++++++++*######*##*##%#%##%##%#%%%#*+====+*==+++**#%%##%%%##%%%%#####%#%##%@@%%%##%###*+++++++++++++++++++++++++++++++++
-++++++++++++++++++++++++++++++++++++++++++++++++##%#*##**####*##%###*#@%%%%%#*****#***+*#*#%%%%%##%####%%%%##%%%@#%@@@%%%%######+++++++++++++++++++++++++++++++++
-+++++++++++++++++++++++++++++++++++++++++++++++**#***##*#*+#*#*###*#**#%%%%#######%%%#%%%%%%%####%#%#%%%%%#%##%%%%%@@%@%%%#####*++=====++=+=+=+++=+++++++++++++++
-++++++++++++++++++++++++++++++++++++++++++++++**##**####***#*######**+#%%%%###***##############%%%###%###%#%##%%##%@@%%%%%%#####*++++=+++=+++++++++++++++++++++++
-++++++++++++++++++++++++++++++++++++++++++++++*#%#*##%**#*###*#%*##**#*#%%%#****++********######%%######%%%%##%%%%@@%%####%####*+++=+++++++++++++++++++++++++++++
-++++++++++++++++++++++++++++++++++++++++++++=**#*%#%%#%**####**##%*%##*%%%%#***++++++++****##%%#%%#*###%#%##%%%#%@@%%%%%##%##%%#*+=+++++++=++++=+==++++++++++++++
-+++++++++++++++++++++++++++++++++++++++++++++*##*#%#%%#*#*#*##*%*%%%###%##%#*++++++++++****#*###%#**##%%#%%##%#%%@%%%%%######%%#*+++===+=+=+=+======+=+++++++++++
-+++++++++++++++++++++++++++++++++++++++++++++*#**#%##%#*####%#####%%*%*#@#%##*+++++++++++*+*#*%###**########%%%%%@##@#######*%###*+++=++==+=+++++++++++++++++++++
-++++++++++++++++++++++++++++++++++++++++++++++***####%%*####*##*#%######@%%###**+++++++++++#+*##%##*###%%%####%@%@%@%##*#####%###++++++++++++++++++++++++++++++++
-+++++++++++++++++++++++++++++++++++++++++++++****%###%%*#*####*%%#**##%%%%%###**++++++=+==+*+*****######%%%%#%%%@#%@@###%##*%%%*#+++++++++++++++=+===++++===+=++=
-+++++==+===================================++**##%*#*##*#%%#%#*#%%%%%##%@%###***+++=++===+++**+***##########%%%%%%%@%%%#%%*%%%++==-------------------------------
-----------:::::::::::::::::::::::....:..::=+*=*%##*##%*#%%%###*#%%%###%#%@%##***+++++====+=*+**##**#####%#%%%@%@%@%@%%%#%%%%%##=------:::::::::::::::::::::::::::
-:::::::::::::::::::::::::::::::::......::+++:=#%##*#######%%#*##%%@%#%@#%@%###***++++==+=++*+#####*#%#####%#@%@%@@%#%%%%%@@@%%*----=-----------------------------
--::-:----:::::::::::::::::::::::::::::::+=*=-=#%#*###***#%%##*###%@%%%%*%%%##****++++==+*++###%####**#*###*@%%%@%%%%%#@%@%%@@@#++-=------------------------------
------------::::::::::::::::::::::::::::==*=-=+##%##%##++*##%%%###%%%**#%%@%##*****+++*+*==*##%%###%####*##@%@@%%%%%%#@%@#@###%####+=*+=--------------------------
------------::::::::::::::::::::::::::::++=--=*###%%%%%*#+%%##%%#%#%%#*%%%@@#********++++*##*%%#####**#%##@@@@%@@@@@@@%@%%##%%%%####%#+=--------------------------
-----------::::::::::::::::::::::::::::-+--=-=*#%%%%##%*#**#%%%%#%%%%##@%%%%*********#*+=####%#%+#####%*#@@@@@@@@@@#**%+**+**++*++##*###-=------------------------
------------:::::::::::::::::::::::::::-+-+===*#%%%%%###*####%%%%%%%%@%%##%%********#***#%%#%*%%##*##%##%%%@@@%%##*#*****+*+++++++*++*+*%+=--=-----------------==-
-============-=-=--=--==-===-==--------=*=++++*%%@%@%%*#%*###%%#%%%%%@%#%%#%#********+*###%@#%%#%#*##%*%@@@@%#%#**###*++***+++#***++**##+%++++++++++++++++*++*++**
-***+******++****************************#*****%%%%%%%%*#%####%*%%%%%%%%%%%%#*******%+*#%@%%%%*#*#%%#*%@@%%%##*##**+*****++#+**+*****##***%**********************#
-****+++*+*+++**+******+*+**************+*+***#%@%%%%%###%######%%%%%@@%%%@%%***+#@@**##@#%######%%*##@%%%#%#++*++**#**+#**+++++*+==**+**+*+**********************
-</span>
-                </pre>
-          <div class="system-info">
-            <p><span class="c3">brady@portfolio</span></p>
-            <p><span class="c3">------------------</span></p>
-            <p>
-              <span class="c3">OS:</span>
-              <span class="c2">Software Engineer</span>
-            </p>
-            <p>
-              <span class="c3">Kernel:</span>
-              <span class="c2"
-                >Full-Stack Web, Machine Learning, 3D Graphics</span
-              >
-            </p>
-            <p>
-              <span class="c3">Uptime:</span>
-              <span class="c2">10+ years coding</span>
-            </p>
-            <p>
-              <span class="c3">Languages:</span>
-              <span class="c2">C, C++, Python, JavaScript</span>
-            </p>
-            <p>
-              <span class="c3">Frameworks:</span>
-              <span class="c2">React, Node.js, Express, Django</span>
-            </p>
-            <p>
-              <span class="c3">Tools:</span>
-              <span class="c2">Git, Docker, AWS, Jest, PyTorch, Vim</span>
-            </p>
-            <p>
-              <span class="c3">Environment:</span>
-              <span class="c2">Linux (Arch btw), Windows</span>
-            </p>
-            <p>
-              <span class="c3">CPU:</span>
-              <span class="c2">Problem Solving</span>
-            </p>
-            <p>
-              <span class="c3">Disk:</span>
-              <span class="c2">PostgreSQL, MonogDB, SQLite</span>
-            </p>
-            <p>
-              <span class="c3">Process:</span>
-              <span class="c2">Agile, CI/CD, TDD</span>
-            </p>
-          </div>
-        </div>
-        <p class="command-line">
-          <span class="prompt">$ </span>
-          <span class="command">contact --info</span>
-        </p>
-        <p class="command-line">
-          <span class="command">
-            <span class="social-links">
-              <a href="mailto:bradymcatee12@gmail.com"
-                >bradymcatee12@gmail.com</a
-              >
-              <a href="https://www.linkedin.com/in/brady-mcatee/"
-                >linkedin/brady-mcatee</a
-              >
-              <a href="https://github.com/bradymcatee">github/bradymcatee</a>
-            </span>
-          </span>
-        </p>
-        <p class="command-line">
-          <span class="prompt">$ </span><span class="cursor">█</span>
-        </p>
-      </div>
-    </section>
-
-    <section id="projects">
-      <h2 class="section-header">Projects</h2>
-      <div class="project-grid">
-        <div class="project-card">
-          <h3>recipeBox</h3>
-          <p>
-            Recipe Box is a web application that allows restaurants to manage
-            their recipes with user role-based permissions
-          </p>
-          <div class="project-tech">
-            <span class="tech-tag">React</span>
-            <span class="tech-tag">Node.js</span>
-            <span class="tech-tag">PostgreSQL</span>
-          </div>
-          <div class="project-links">
-            <a
-              href="https://github.com/bradymcatee/recipeBox"
-              class="project-link"
-            >
-              <span class="prompt">$</span> git clone
-            </a>
-            <a href="https://recipecrate.app" class="project-link">
-              <span class="prompt">$</span> view live
-            </a>
-          </div>
-        </div>
-        <div class="project-card">
-          <h3>Plant Disease Classifier</h3>
-          <p>
-            A machine learning model that is able to detect diseases in plant
-            species
-          </p>
-          <div class="project-tech">
-            <span class="tech-tag">Python</span>
-            <span class="tech-tag">PyTorch</span>
-            <span class="tech-tag">fastai</span>
-          </div>
-          <div class="project-links">
-            <a
-              href="https://huggingface.co/spaces/bradymcatee/diseases/tree/main"
-              class="project-link"
-            >
-              <span class="prompt">$</span> git clone
-            </a>
-            <a
-              href="https://huggingface.co/spaces/bradymcatee/diseases"
-              class="project-link"
-            >
-              <span class="prompt">$</span> view live
-            </a>
-          </div>
-        </div>
-        <div class="project-card">
-          <h3>Ray Tracing Engine</h3>
-          <p>A ray tracing engine built from scratch with C++</p>
-          <div class="project-tech">
-            <span class="tech-tag">C++</span>
-            <span class="tech-tag">3D Graphics</span>
-          </div>
-          <div class="project-links">
-            <a
-              href="https://github.com/bradymcatee/RayTracer"
-              class="project-link"
-            >
-              <span class="prompt">$</span> git clone
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="about">
-      <h2 class="section-header">About</h2>
-      <div class="terminal-window">
-        <p class="command-line">
-          <span class="prompt">$ </span>
-          <span class="command">cat about.txt</span>
-        </p>
-        <div class="output">
-          <p>
-            I fell in love with programming at the age of 12, creating simple
-            games using Visual Basic. In high school, I took every CS class I
-            could, learning Java, C++, and web development.
-          </p>
-          <p>
-            Since then, I've gone on to study Computer Science at Portland
-            State, where I've learned about algorithms, data structures, and
-            software engineering principles.
-          </p>
-          <p>
-            Now, I'm working on projects that excite me, like building web apps,
-            machine learning models, and 3D graphics engines.
-          </p>
-        </div>
-        <p class="command-line">
-          <span class="prompt">$ </span>
-          <span class="command">ls skills/</span>
-        </p>
-        <div class="output">
-          <div class="project-tech">
-            <span class="tech-tag">JavaScript</span>
-            <span class="tech-tag">Python</span>
-            <span class="tech-tag">React</span>
-            <span class="tech-tag">Node.js</span>
-            <span class="tech-tag">Git</span>
-            <span class="tech-tag">Docker</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="contact">
-      <h2 class="section-header">Contact</h2>
-      <div class="terminal-window">
-        <p class="command-line">
-          <span class="prompt">$ </span>
-          <span class="command">echo "Let's connect!"</span>
-        </p>
-        <div class="social-links">
-          <a href="https://github.com/bradymcatee">github/bradymcatee</a>
-          <a href="https://linkedin.com/in/brady-mcatee"
-            >linkedin/brady-mcatee</a
-          >
-          <a href="mailto:bradymcatee12@gmail.com">email</a>
-        </div>
-      </div>
-    </section>
-  </body>
 </html>
