@@ -1,167 +1,191 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brady McAtee — Software Engineer</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Brady McAtee — Software Engineer</title>
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/index.css">
-</head>
+  <body>
+    <h1 class="header">Brady McAtee</h1>
+    <p>Software Engineer · Full-Stack Web, Machine Learning, 3D Graphics</p>
+    <p>
+      <a href="resources/Brady_McAtee_Resume_2025.pdf">Download Resume (PDF)</a>
+    </p>
+    <hr />
 
-<body>
-  <h1 class="header">Brady McAtee</h1>
-  <p>Software Engineer · Full-Stack Web, Machine Learning, 3D Graphics</p>
-  <p>
-    <a href="resources/Brady_McAtee_Resume_2025.pdf">Download Resume (PDF)</a>
-  </p>
-  <hr>
-
-  <figure style="max-width: 300px; margin: calc(var(--line-height) * 2) 0;">
+    <!--   <figure style="max-width: 300px; margin: calc(var(--line-height) * 2) 0;">
     <img src="resources/me.jpg" alt="Brady McAtee" style="border: var(--border-thickness) solid var(--text-color);">
-  </figure>
+  </figure> -->
 
-  <nav id="TOC" role="doc-toc">
-    <h2 id="toc-title">Contents</h2>
-    <ul class="incremental">
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+    <nav id="TOC" role="doc-toc">
+      <h2 id="toc-title">Contents</h2>
+      <ul class="incremental">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
 
-  <section id="about">
-    <h2>About</h2>
-    <p>
-      I started programming at 12 making games in Visual Basic, and I fell in love.
-    </p>
-    <p>
-      Right now I'm studying CS at Portland State with a physics minor and working as a software
-      engineer intern at MSEI/Biotronik, where I build simulation models for medical device hardware.
-    </p>
-    <p>
-      I like working on interesting engineering problems and building useful technology, whether that involves
-      computer vision, 3D graphics, machine learning, or full-stack web development.
-    </p>
-  </section>
-
-  <section id="projects">
-    <h2>Projects</h2>
-
-    <details>
-      <summary>recipeBox — Recipe management web application</summary>
+    <section id="about">
+      <h2>About</h2>
       <p>
-        Built a full-stack web app for restaurants to manage recipes and ingredients with full CRUD support.
-        Designed RESTful APIs and normalized PostgreSQL schemas to keep recipe and ingredient data consistent.
-        Implemented responsive React UI with intuitive forms for adding, editing, and searching recipes.
+        I started programming at 12 making games in Visual Basic, and I fell in
+        love.
       </p>
       <p>
-        <a href="https://github.com/bradymcatee/recipeBox">GitHub</a> ·
-        <a href="https://recipecrate.app">Live Demo</a>
-      </p>
-      <p><strong>Stack:</strong> React, Node.js, Express, PostgreSQL, AWS EC2</p>
-    </details>
-
-    <details>
-      <summary>Tennis Shot Tracker — Ball tracking and serve velocity measurement</summary>
-      <p>
-        Trained a ball tracking CNN model based on the TrackNet architecture using PyTorch.
-        Used computer vision techniques and homography estimation to map 2D video coordinates to real-world court
-        dimensions.
-        Measured tennis serve velocity from iPhone video recordings by combining frame analysis and geometric
-        calibration.
+        Right now I'm studying CS at Portland State with a physics minor and
+        working as a software engineer intern at MSEI/Biotronik, where I build
+        simulation models for medical device hardware.
       </p>
       <p>
-        <a href="https://github.com/bradymcatee/servetracker">GitHub</a>
+        I like working on interesting engineering problems and building useful
+        technology, whether that involves computer vision, 3D graphics, machine
+        learning, or full-stack web development.
       </p>
-      <p><strong>Stack:</strong> Python, PyTorch, Computer Vision, OpenCV</p>
-    </details>
+    </section>
 
-    <details>
-      <summary>Interactive Photo Refocusing App — Depth estimation and DOF simulation</summary>
+    <section id="projects">
+      <h2>Projects</h2>
+
+      <details>
+        <summary>recipeBox — Recipe management web application</summary>
+        <p>
+          Built a full-stack web app for restaurants to manage recipes and
+          ingredients with full CRUD support. Designed RESTful APIs and
+          normalized PostgreSQL schemas to keep recipe and ingredient data
+          consistent. Implemented responsive React UI with intuitive forms for
+          adding, editing, and searching recipes.
+        </p>
+        <p>
+          <a href="https://github.com/bradymcatee/recipeBox">GitHub</a> ·
+          <a href="https://recipecrate.app">Live Demo</a>
+        </p>
+        <p>
+          <strong>Stack:</strong> React, Node.js, Express, PostgreSQL, AWS EC2
+        </p>
+      </details>
+
+      <details>
+        <summary>
+          Tennis Shot Tracker — Ball tracking and serve velocity measurement
+        </summary>
+        <p>
+          Trained a ball tracking CNN model based on the TrackNet architecture
+          using PyTorch. Used computer vision techniques and homography
+          estimation to map 2D video coordinates to real-world court dimensions.
+          Measured tennis serve velocity from iPhone video recordings by
+          combining frame analysis and geometric calibration.
+        </p>
+        <p>
+          <a href="https://github.com/bradymcatee/servetracker">GitHub</a>
+        </p>
+        <p><strong>Stack:</strong> Python, PyTorch, Computer Vision, OpenCV</p>
+      </details>
+
+      <details>
+        <summary>
+          Interactive Photo Refocusing App — Depth estimation and DOF simulation
+        </summary>
+        <p>
+          Built full-stack app using Python, PyTorch, and Flask for DSLR-style
+          depth-of-field simulation from single images. Implemented Multi-Scale
+          CNN (87.9M parameters) achieving 79% accuracy for monocular depth
+          estimation. Created responsive web interface with real-time
+          click-to-focus interaction and configurable aperture effect.
+        </p>
+        <p>
+          <a href="https://github.com/bradymcatee/refocusing">GitHub</a>
+          <a href="https://huggingface.co/spaces/bradymcatee/refocusing"
+            >Live Demo</a
+          >
+        </p>
+        <p><strong>Stack:</strong> Python, PyTorch, Flask, Docker</p>
+      </details>
+
+      <details>
+        <summary>Plant Disease Classifier — ML disease detection</summary>
+        <p>
+          Created PyTorch/ResNet model achieving 99% accuracy on 50,000+ plant
+          images. Used data augmentation to improve model performance across
+          plant species. Deployed model on Hugging Face Spaces for real-time
+          disease diagnosis.
+        </p>
+        <p>
+          <a href="https://huggingface.co/spaces/bradymcatee/diseases/tree/main"
+            >GitHub</a
+          >
+          ·
+          <a href="https://huggingface.co/spaces/bradymcatee/diseases"
+            >Live Demo</a
+          >
+        </p>
+        <p><strong>Stack:</strong> Python, PyTorch, ResNet, Hugging Face</p>
+      </details>
+
+      <details>
+        <summary>Ray Tracing Engine — 3D graphics renderer</summary>
+        <p>
+          A ray tracing engine built from scratch in C++ that renders realistic
+          3D scenes. Implements reflection, refraction, shadows, and
+          anti-aliasing.
+        </p>
+        <p>
+          <a href="https://github.com/bradymcatee/RayTracer">GitHub</a>
+        </p>
+        <p><strong>Stack:</strong> C++, 3D Graphics, Computer Graphics</p>
+      </details>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+
+      <table>
+        <tbody>
+          <tr>
+            <td class="width-min"><strong>Languages</strong></td>
+            <td>C++, C, C#, Python, JavaScript, SQL</td>
+          </tr>
+          <tr>
+            <td class="width-min"><strong>Web</strong></td>
+            <td>React, Node.js, Express, Flask, PostgreSQL</td>
+          </tr>
+          <tr>
+            <td class="width-min"><strong>ML/CV</strong></td>
+            <td>PyTorch, OpenCV, NumPy</td>
+          </tr>
+          <tr>
+            <td class="width-min"><strong>Tools</strong></td>
+            <td>Git, Docker, Linux, Vim, .NET, AWS</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
       <p>
-        Built full-stack app using Python, PyTorch, and Flask for DSLR-style depth-of-field simulation from single
-        images.
-        Implemented Multi-Scale CNN (87.9M parameters) achieving 79% accuracy for monocular depth estimation.
-        Created responsive web interface with real-time click-to-focus interaction and configurable aperture effect.
+        Email:
+        <a href="mailto:bradymcatee12@gmail.com">bradymcatee12@gmail.com</a>
       </p>
       <p>
-        <a href="https://github.com/bradymcatee/refocusing">GitHub</a>
-        <a href="https://huggingface.co/spaces/bradymcatee/refocusing">Live Demo</a>
-      </p>
-      <p><strong>Stack:</strong> Python, PyTorch, Flask, Docker</p>
-    </details>
-
-    <details>
-      <summary>Plant Disease Classifier — ML disease detection</summary>
-      <p>
-        Created PyTorch/ResNet model achieving 99% accuracy on 50,000+ plant images.
-        Used data augmentation to improve model performance across plant species.
-        Deployed model on Hugging Face Spaces for real-time disease diagnosis.
+        GitHub:
+        <a href="https://github.com/bradymcatee">github.com/bradymcatee</a>
       </p>
       <p>
-        <a href="https://huggingface.co/spaces/bradymcatee/diseases/tree/main">GitHub</a> ·
-        <a href="https://huggingface.co/spaces/bradymcatee/diseases">Live Demo</a>
+        LinkedIn:
+        <a href="https://www.linkedin.com/in/brady-mcatee/"
+          >linkedin.com/in/brady-mcatee</a
+        >
       </p>
-      <p><strong>Stack:</strong> Python, PyTorch, ResNet, Hugging Face</p>
-    </details>
+    </section>
 
-    <details>
-      <summary>Ray Tracing Engine — 3D graphics renderer</summary>
-      <p>
-        A ray tracing engine built from scratch in C++ that renders realistic 3D scenes.
-        Implements reflection, refraction, shadows, and anti-aliasing.
-      </p>
-      <p>
-        <a href="https://github.com/bradymcatee/RayTracer">GitHub</a>
-      </p>
-      <p><strong>Stack:</strong> C++, 3D Graphics, Computer Graphics</p>
-    </details>
-  </section>
-
-  <section id="skills">
-    <h2>Skills</h2>
-
-    <table>
-      <tbody>
-        <tr>
-          <td class="width-min"><strong>Languages</strong></td>
-          <td>C++, C, C#, Python, JavaScript, SQL</td>
-        </tr>
-        <tr>
-          <td class="width-min"><strong>Web</strong></td>
-          <td>React, Node.js, Express, Flask, PostgreSQL</td>
-        </tr>
-        <tr>
-          <td class="width-min"><strong>ML/CV</strong></td>
-          <td>PyTorch, OpenCV, NumPy</td>
-        </tr>
-        <tr>
-          <td class="width-min"><strong>Tools</strong></td>
-          <td>Git, Docker, Linux, Vim, .NET, AWS</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>
-      Email: <a href="mailto:bradymcatee12@gmail.com">bradymcatee12@gmail.com</a>
-    </p>
-    <p>
-      GitHub: <a href="https://github.com/bradymcatee">github.com/bradymcatee</a>
-    </p>
-    <p>
-      LinkedIn: <a href="https://www.linkedin.com/in/brady-mcatee/">linkedin.com/in/brady-mcatee</a>
-    </p>
-  </section>
-
-  <hr>
-  <footer>
-    <p><small>© 2024 Brady McAtee. Built with plain HTML and CSS.</small></p>
-  </footer>
-</body>
-
+    <hr />
+    <footer>
+      <p><small>© 2025 Brady McAtee. Built with plain HTML and CSS.</small></p>
+    </footer>
+  </body>
 </html>
